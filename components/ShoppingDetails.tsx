@@ -19,11 +19,6 @@ const ShoppingDetails: FC<item> = ({ route, navigation }): ReactElement => {
     setParams({ title: titleText });
   };
 
-  useEffect(() => {
-    return () => {
-      ChangeThisTitle("test");
-    };
-  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.imageView}>

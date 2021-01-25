@@ -10,8 +10,27 @@ import {
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ShoppingItem from "./ShoppingItem";
+import { createStackNavigator } from "@react-navigation/stack";
 
-function ShoppingList({ navigation }) {
+type RootStackParamList = {
+  ShoppingList: undefined; // undefined because you aren't passing any params to the home screen
+  ShoppingDetails: { item: any };
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
+
+// Home.tsx
+import { StackNavigationProp } from "@react-navigation/stack";
+type ProfileScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  "ShoppingList"
+>;
+
+type Props = {
+  navigation: ProfileScreenNavigationProp;
+};
+
+const ShoppingList = ({ navigation }: Props) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -55,7 +74,7 @@ function ShoppingList({ navigation }) {
       )}
     </View>
   );
-}
+};
 const styles = StyleSheet.create({
   cardView: {
     display: "flex",
