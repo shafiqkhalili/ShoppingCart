@@ -15,7 +15,7 @@ function App() {
         <Stack.Screen
           name="ShoppingList"
           component={ShoppingList}
-          options={{ title: "Overview" }}
+          options={{ title: "Catalog" }}
         />
         <Stack.Screen name="ShoppingDetails" component={ShoppingDetails} />
       </Stack.Navigator>
